@@ -1,0 +1,33 @@
+name: analyze-inventory
+description: Analyzes structured inventory data for stock health and value.
+version: 1.0.0
+input_schema:
+  type: object
+  properties:
+    inventory:
+      type: array
+      items:
+        type: object
+        properties:
+          item_id: { type: string }
+          item_name: { type: string }
+          warehouse_id: { type: string }
+          current_stock: { type: number }
+          reorder_level: { type: number }
+          maximum_stock: { type: number }
+          unit_cost: { type: number }
+        required:
+          - item_id
+          - current_stock
+          - reorder_level
+          - maximum_stock
+          - unit_cost
+  required:
+    - inventory
+implementation:
+  type: script
+  path: analyze_inventory.py
+  runtime: python3
+annotations:
+  read_only: true
+  idempotent: true

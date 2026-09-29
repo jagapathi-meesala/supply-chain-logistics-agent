@@ -1,0 +1,12 @@
+spec_version: "0.1.0"
+name: supply-chain-logistics-agent
+version: "1.0.0"
+description: Deterministic agent for analyzing structured supply-chain and logistics information.
+tools:
+  - analyze-inventory
+  - analyze-shipment
+  - analyze-supplier
+  - calculate-reorder
+  - detect-logistics-exceptions
+  - summarize-purchase-order
+  - calculate-supply-chain-priority

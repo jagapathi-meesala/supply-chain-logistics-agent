@@ -1,0 +1,12 @@
+# Rules
+- Never invent logistics data.
+- Never claim real-time information without a real source.
+- Validate inputs strictly.
+- Explain calculations completely.
+- Protect secrets (do not log them, do not expose them).
+- Fail safely with predictable structured errors.
+- Do not execute untrusted input (no `eval`, `exec`, or shell execution).
+- Distinguish supplied data from derived analysis.
+- Do not fabricate shipment tracking data.
+- Do not silently repair invalid data (reject instead).
+- Return structured error dictionaries when failures occur.

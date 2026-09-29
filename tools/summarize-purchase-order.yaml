@@ -1,0 +1,30 @@
+name: summarize-purchase-order
+description: Synthesizes overall PO information deterministically.
+version: 1.0.0
+input_schema:
+  type: object
+  properties:
+    purchase_order_id:
+      type: string
+    supplier:
+      type: string
+    items:
+      type: array
+    quantities:
+      type: array
+    unit_prices:
+      type: array
+    status:
+      type: string
+  required:
+    - purchase_order_id
+    - items
+    - quantities
+    - unit_prices
+implementation:
+  type: script
+  path: summarize_purchase_order.py
+  runtime: python3
+annotations:
+  read_only: true
+  idempotent: true

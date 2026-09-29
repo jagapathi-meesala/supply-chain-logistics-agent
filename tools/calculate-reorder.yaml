@@ -1,0 +1,29 @@
+name: calculate-reorder
+description: Calculates if replenishment is needed and suggests quantity.
+version: 1.0.0
+input_schema:
+  type: object
+  properties:
+    current_stock:
+      type: number
+    reorder_level:
+      type: number
+    maximum_stock:
+      type: number
+    average_daily_demand:
+      type: number
+    lead_time_days:
+      type: number
+  required:
+    - current_stock
+    - reorder_level
+    - maximum_stock
+    - average_daily_demand
+    - lead_time_days
+implementation:
+  type: script
+  path: calculate_reorder.py
+  runtime: python3
+annotations:
+  read_only: true
+  idempotent: true

@@ -1,0 +1,32 @@
+name: analyze-shipment
+description: Analyzes shipment data to determine status and delays.
+version: 1.0.0
+input_schema:
+  type: object
+  properties:
+    shipment_id:
+      type: string
+    origin:
+      type: string
+    destination:
+      type: string
+    status:
+      type: string
+    expected_delivery:
+      type: string
+      format: date
+    actual_delivery:
+      type: string
+      format: date
+    priority:
+      type: string
+  required:
+    - shipment_id
+    - status
+implementation:
+  type: script
+  path: analyze_shipment.py
+  runtime: python3
+annotations:
+  read_only: true
+  idempotent: true

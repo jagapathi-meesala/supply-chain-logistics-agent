@@ -1,0 +1,30 @@
+name: analyze-supplier
+description: Analyzes supplier performance deterministically.
+version: 1.0.0
+input_schema:
+  type: object
+  properties:
+    supplier_id:
+      type: string
+    supplier_name:
+      type: string
+    orders:
+      type: number
+    completed_orders:
+      type: number
+    delayed_orders:
+      type: number
+    defective_orders:
+      type: number
+    average_delivery_days:
+      type: number
+  required:
+    - supplier_id
+    - orders
+implementation:
+  type: script
+  path: analyze_supplier.py
+  runtime: python3
+annotations:
+  read_only: true
+  idempotent: true

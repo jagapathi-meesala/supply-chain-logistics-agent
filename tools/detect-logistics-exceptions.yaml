@@ -1,0 +1,19 @@
+name: detect-logistics-exceptions
+description: Detects structural anomalies in shipment records.
+version: 1.0.0
+input_schema:
+  type: object
+  properties:
+    records:
+      type: array
+      items:
+        type: object
+  required:
+    - records
+implementation:
+  type: script
+  path: detect_logistics_exceptions.py
+  runtime: python3
+annotations:
+  read_only: true
+  idempotent: true

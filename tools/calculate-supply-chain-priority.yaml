@@ -1,0 +1,32 @@
+name: calculate-supply-chain-priority
+description: Calculates a deterministic supply chain priority score.
+version: 1.0.0
+input_schema:
+  type: object
+  properties:
+    stock_level:
+      type: number
+    reorder_level:
+      type: number
+    shipment_delay_days:
+      type: number
+    demand_level:
+      type: number
+    supplier_delay_days:
+      type: number
+    item_criticality:
+      type: number
+  required:
+    - stock_level
+    - reorder_level
+    - shipment_delay_days
+    - demand_level
+    - supplier_delay_days
+    - item_criticality
+implementation:
+  type: script
+  path: calculate_supply_chain_priority.py
+  runtime: python3
+annotations:
+  read_only: true
+  idempotent: true
