@@ -9,13 +9,13 @@ This document details the deterministic operations, trust boundaries, calculatio
 - **What problem it solves**: It converts raw, structured supply chain data into structured insights (metrics, thresholds, delays, exceptions) using predictable, static rules.
 - **What it does NOT do**: It does NOT track real-world physical shipments, place live orders, communicate with external carriers, or make autonomous adjustments to real-world logistics systems.
 
-## Inputs
+## Inputs and Data Sources
 The agent exclusively accepts strictly formatted JSON objects representing specific supply chain entities as input data sources. All operational data is supplied entirely by the caller, meaning there are no external live API integrations or live tracking databases used by the system. The system enforces rigid validation rules where caller-provided values must match exact types, numeric boundaries, and ISO 8601 date formats. If any supplied input violates these strict type or numeric constraints, the agent immediately halts and rejects the invalid input rather than guessing missing data.
 
-## Decision
+## Decision and Reasoning
 The agent makes every decision using hardcoded, transparent, deterministic rules without relying on hidden LLM reasoning or ML inference. Each mathematical calculation and threshold evaluation is derived exclusively from static formulas applied directly to the validated input numbers. Because there is no randomness or external state, any evaluator can trace the exact output result perfectly back to the original input values and the corresponding deterministic logic path. 
 
-## Limits
+## Limits, Constraints, and Known Limitations
 The agent operates with the strict limitation that it cannot know if a shipment is physically delayed in the real world beyond what the provided JSON payload states. The system operates strictly offline, completely lacking real-time awareness, external data connectivity, and the ability to autonomously update external ERP systems. Furthermore, it operates under the constraint that thresholds and weights are static; it cannot dynamically adjust to seasonality or market trends, and it safely handles missing or invalid data by throwing explicit errors rather than inferring values.
 
 ## Output Contract
